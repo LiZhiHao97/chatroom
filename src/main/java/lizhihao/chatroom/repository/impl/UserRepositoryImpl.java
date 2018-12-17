@@ -25,7 +25,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findById(long id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM user WHERE id=?", new Object[] { id }, new BeanPropertyRowMapper<User>(User.class));
+    public User findByUserName(String username) {
+        return jdbcTemplate.queryForObject("SELECT * FROM user WHERE username=?", new Object[] { username }, new BeanPropertyRowMapper<User>(User.class));
     }
 }

@@ -17,20 +17,20 @@ public class UserRepositoryTests {
 
     @Test
     public void testSave() {
-        User user = new User("lizhihao1", "123", "lizhihao1");
+        User user = new User("lizhihao2", "123", "lizhihao2");
         userRepository.save(user);
     }
 
     @Test
     public void testUpdate() {
-        User user = userRepository.findById(3);
+        User user = userRepository.findByUserName("lizhihao");
         user.setPassword("123456");
         userRepository.update(user);
     }
 
     @Test
     public void testFindById() {
-        User user=userRepository.findById(3);
+        User user=userRepository.findByUserName("lizhihao");
         System.out.println("user == "+user.getNickname());
     }
 }
