@@ -3,38 +3,57 @@ package lizhihao.chatroom.controller;
 import lizhihao.chatroom.model.User;
 import lizhihao.chatroom.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Random;
 
-@RestController
+@Controller
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "/setSession")
-    public Map<String, Object> setSession(HttpServletRequest request) {
-        Map<String, Object> map = new HashMap<>();
-        request.getSession().setAttribute("message", request.getRequestURL());
-        map.put("request Url", request.getRequestURL());
-        return map;
+    @PostMapping(value = "/login", produces = "application/json;charset=UTF-8")
+    public String login(HttpServletResponse response, String username, String password) {
+        User user = userRepository.findByUserName(username);
+        if (user!=null && user.getPassword().equals(password)){
+            int avatar = userRepository.findByUserName(username).getAvatar();
+            Cookie cookie = new Cookie("username", username);
+            cookie.setPath("/");
+            cookie.setMaxAge(3600);
+            response.addCookie(cookie);
+            Cookie cookie1 = new Cookie("avatar", String.valueOf(avatar));
+            cookie1.setPath("/");
+            cookie1.setMaxAge(3600);
+            response.addCookie(cookie1);
+            return "redirect:/chat";
+        }
+        return "login";
     }
 
-    @RequestMapping(value = "/getSession")
-    public Object getSession (HttpServletRequest request) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("sessionId", request.getSession().getId());
-        map.put("message", request.getSession().getAttribute("message"));
-        return map;
+    @PostMapping("/logout")
+    public String logout (HttpServletRequest request){
+        Cookie[] cookies =  request.getCookies();
+        if(cookies != null){
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("username")){
+                    cookie.setMaxAge(0);
+                }
+            }
+        }
+        return "redirect:/login";
     }
 
-//    @RequestMapping(value = "/login")
-//    public String login(HttpServletRequest request, String username, String password) {
-//       String msg = "登录失败";
-//       User user = userRepository.findByUserName(userName);
-//
-//    }
+    @PostMapping("/register")
+    public String register(HttpServletRequest request, String username, String password) {
+        String msg = "注册成功";
+        User user = userRepository.findByUserName(username);
+        Random rand = new Random();
+        User newUser = new User(username, password, username, rand.nextInt(10));
+        userRepository.save(newUser);
+        return "redirect:/login";
+    }
 }

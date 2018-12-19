@@ -1,5 +1,6 @@
 package lizhihao.chatroom.resository;
 
+import lizhihao.chatroom.ChatroomApplication;
 import lizhihao.chatroom.model.User;
 import lizhihao.chatroom.repository.UserRepository;
 import org.junit.Test;
@@ -10,15 +11,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = ChatroomApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
 
     @Test
     public void testSave() {
-        User user = new User("lizhihao2", "123", "lizhihao2");
+        User user = new User("lizhihao3", "123", "lizhihao2", 9);
         userRepository.save(user);
+        System.out.println(1);
     }
 
     @Test

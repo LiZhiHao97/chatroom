@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/chat.css}">
+</head>
+<body>
+    <div class="chat-window">
+        <div class="window-l">
+            <div class="window-l-top">
+                <a class="search-btn" href="#javascript">
+                    <img th:src="@{/imgs/search.png}" alt="">
+                </a>
+                <input class="search-input" type="text"/>
+            </div>
+            <div class="people-choice clearfix">
+                <ul>
+                    <p class="no-result">搜索结果不存在</p>
+                    <!--<li>-->
+                        <!--<img th:src="@{/imgs/0.png}" alt="">-->
+                        <!--<p class="people-name">丁欢喜</p>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="window-r">
+            <div class="window-r-top">
+                </a>
+                <p>
+                    多人聊天室
+                    <span>(在线人数:</span>
+                    <span class="online-count">0</span>
+                    <span>)</span>
+                </p>
+            </div>
+            <div class="chat-content">
+                <!--<div class="other-chat-container clearfix">-->
+                    <!--<img src="" alt="">-->
+                    <!--<p class="other-content">你好我是来自星星的丁绿龟，我曾居住于2#613，你也可以叫我丁欢喜，请问你的名字是什么，我们能做个朋友吗，哈哈哈哈哈啊哈哈哈哈！！！</p>-->
+                <!--</div>-->
+                <!--<div class="my-chat-container clearfix">-->
+                    <!--<img src="" alt="">-->
+                    <!--<p class="my-content">-->
+                        <!--你怕是石乐志吧，我是你爹你都忘了？你这不孝子-->
+                    <!--</p>-->
+                <!--</div>-->
+            </div>
+            <div class="input-container">
+                <div id="editor">
+                </div>
+                <button class="send-btn">
+                    发送
+                </button>
+            </div>
+        </div>
+    </div>
+    <button id="user_exit">离开</button>
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{/js/jquery.cookie.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/wangEditor.min.js}"></script>
+    <script th:src="@{/js/chat.js}"></script>
+    <script>
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        // 或者 var editor = new E( document.getElementById('#editor') )
+        editor.customConfig.menus = [
+            'emoticon',  // 表情
+        ]
+        editor.create()
+    </script>
+</body>
+</html>

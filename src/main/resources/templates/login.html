@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <div class="panel">
+        <div class="panel--wrapper">
+            <div class="active panel--box sign signin">
+                <a class="sign--link" href="#" id="signUp">
+                    注册
+                </a>
+                <div class="panel--header">
+                    <h2 class="panel--title">登录</h2>
+                </div>
+                <form class="panel--body" action="/login" method="post" onsubmit="return loginCheck()">
+                    <div class="sign--input">
+                        <input id="login-username" name="username" placeholder="用户名" type="text" autofocus>
+                    </div>
+                    <div class="sign--input">
+                        <input id="login-password" name="password" placeholder="密码" type="password">
+                    </div>
+                    <div>
+                        <div class="sign--checkbox">
+                            <input id="remember" checked="checked" name="remember" type="checkbox">
+                            <label for="remember"></label>记住我
+                        </div>
+                        <input class="sign--button right" type="submit" value="登录">
+                        <div class="line"></div>
+                    </div>
+                    <div class="sign__forgot">
+                        <h3>
+                            忘记密码？
+                        </h3>
+                        <a href="#">点击这里</a>
+                        设置新密码。
+                    </div>
+                </form>
+            </div>
+            <div class="panel--box sign signup">
+                <a class="sign--link signup__link" href="#" id="signIn">
+                    马上登录
+                </a>
+                <div class="panel--header">
+                    <h2 class="panel--title signup__title">注册</h2>
+                </div>
+                <form class="panel--body" action="/register" method="post" onsubmit="return registerCheck()">
+                    <div class="sign--input">
+                        <input id="register-username" name="username" placeholder="用户名" type="text" autofocus>
+                    </div>
+                    <div class="sign--input">
+                        <input id="register-password" name="password" placeholder="密码" type="password">
+                    </div>
+                    <div class="sign--input">
+                        <input id="register-check-password" name="check-password" placeholder="确认密码" type="password">
+                    </div>
+                    <div class="panel--border-bottom">
+                        <div class="line"></div>
+                        <input class="sign--button sign--button--outline signup__button" type="submit" value="注册">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/login.js}"></script>
+</body>
+</html>

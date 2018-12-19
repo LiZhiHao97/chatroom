@@ -1,5 +1,6 @@
 package lizhihao.chatroom.resository;
 
+import lizhihao.chatroom.ChatroomApplication;
 import lizhihao.chatroom.model.Message;
 import lizhihao.chatroom.repository.MessageRepository;
 import org.junit.Test;
@@ -9,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = ChatroomApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class MessageRepositoryTests {
     @Autowired
     private MessageRepository messageRepository;
