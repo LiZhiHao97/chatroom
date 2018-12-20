@@ -37,7 +37,7 @@ function loginCheck() {
     var usernameValue = document.getElementById("login-username").value;
     var passwordValue = document.getElementById("login-password").value;
 
-    if(usernameValue.length < 6) {
+    if(usernameValue.length < 3) {
         alert("用户名不得小于6位");
         return false;
     }
@@ -54,7 +54,7 @@ function registerCheck() {
     var passwordValue = document.getElementById("register-password").value;
     var checkPasswordValue = document.getElementById("register-check-password").value;
 
-    if (usernameValue.length < 6) {
+    if (usernameValue.length < 3) {
         alert("用户名不得小于6位");
         return false;
     }

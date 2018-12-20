@@ -19,11 +19,15 @@
                 <input class="search-input" type="text"/>
             </div>
             <div class="people-choice clearfix">
+                <!--<p class="no-result">搜索结果不存在</p>-->
                 <ul>
-                    <p class="no-result">搜索结果不存在</p>
                     <!--<li>-->
                         <!--<img th:src="@{/imgs/0.png}" alt="">-->
                         <!--<p class="people-name">丁欢喜</p>-->
+                        <!--<div class="online-status">-->
+                            <!--<div class="status-circle"></div>-->
+                            <!--<div class="status-words">online</div>-->
+                        <!--</div>-->
                     <!--</li>-->
                 </ul>
             </div>
@@ -36,18 +40,33 @@
                     <span>(在线人数:</span>
                     <span class="online-count">0</span>
                     <span>)</span>
+                    <span class="to-people">To:
+                        <span class="to-people-value"></span>
+                    </span>
                 </p>
             </div>
             <div class="chat-content">
                 <!--<div class="other-chat-container clearfix">-->
-                    <!--<img src="" alt="">-->
-                    <!--<p class="other-content">你好我是来自星星的丁绿龟，我曾居住于2#613，你也可以叫我丁欢喜，请问你的名字是什么，我们能做个朋友吗，哈哈哈哈哈啊哈哈哈哈！！！</p>-->
+                    <!--<img th:src="@{/imgs/0.png}" alt="">-->
+                    <!--<div class="other-container">-->
+                        <!--<div class="sayer-data">-->
+                            <!--<span class="sayer-name">该用户已成仙</span>-->
+                            <!--<span class="say-time">10:27</span>-->
+                        <!--</div>-->
+                        <!--<p class="other-content">你好我是来自星星的丁绿龟，我曾居住于2#613，你也可以叫我丁欢喜，请问你的名字是什么，我们能做个朋友吗，哈哈哈哈哈啊哈哈哈哈！！！</p>-->
+                    <!--</div>-->
                 <!--</div>-->
                 <!--<div class="my-chat-container clearfix">-->
-                    <!--<img src="" alt="">-->
-                    <!--<p class="my-content">-->
-                        <!--你怕是石乐志吧，我是你爹你都忘了？你这不孝子-->
-                    <!--</p>-->
+                    <!--<img th:src="@{/imgs/0.png}" alt="">-->
+                    <!--<div class="my-container">-->
+                        <!--<div class="sayer-data">-->
+                            <!--<span class="say-time">10:27</span>-->
+                            <!--<span class="sayer-name">该用户已成仙</span>-->
+                        <!--</div>-->
+                        <!--<p class="my-content">-->
+                            <!--你怕是石乐志吧，我是你爹你都忘了？你这不孝子-->
+                        <!--</p>-->
+                    <!--</div>-->
                 <!--</div>-->
             </div>
             <div class="input-container">

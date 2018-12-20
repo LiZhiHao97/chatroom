@@ -34,8 +34,8 @@ public final class WebSocketUtils {
         }
     }
 
-    public static void sendMessageAll(String message) {
-        ONLINE_USER_SESSIONS.forEach((sessionId, session) -> sendMessage(session, message));
+    public static void sendMessageAll(String data) {
+        ONLINE_USER_SESSIONS.forEach((sessionId, session) -> sendMessage(session, data));
     }
 
 }

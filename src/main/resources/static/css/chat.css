@@ -139,6 +139,27 @@ body{
 .people-choice ul li p.people-name{
     color: #555;
 }
+.online-status {
+    margin-left: 40px;
+    text-indent: 10px;
+}
+
+.status-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #5ecc84;
+    float: left;
+    position: relative;
+    top: 7px;
+    left: 9px;
+}
+.status-words {
+    float: left;
+    color: #999;
+    position: relative;
+    left: 5px;
+}
 .people-choice ul li p.chat-preview{
     color:#999;
     font-size: 12px;
@@ -172,7 +193,10 @@ body{
     line-height: 40px;
     font-size: 20px;
 }
-
+.to-people {
+    width: 200px;
+    float: right;
+}
 /*他人的消息对话框与头像*/
 .other-chat-container{
     width: 100%;
@@ -186,14 +210,12 @@ body{
     float: left;
 }
 .other-content{
+    min-width: 120px;
     max-width: 300px;
-    display: inline;
     padding: 10px 20px;
     color: #555;
     background: #f6f6f6;
-    border-radius: 15px;
-    float: left;
-    margin-left: 30px;
+    border-radius: 4px;
     position: relative;
     word-break: break-all;
 }
@@ -201,12 +223,16 @@ body{
     content:'';
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-bottom:8px solid transparent;
-    border-right: 14px solid #f6f6f6;
+    border-right: 8px solid transparent;
+    border-left:8px solid transparent;
+    border-bottom: 10px solid #f6f6f6;
     position: absolute;
-    left:-13px;
-    top: 14px;
+    left: 16px;
+    top: -8px;
+}
+.other-container {
+    float: left;
+    margin-left: 30px;
 }
 /*自己的消息对话框与头像*/
 .my-chat-container{
@@ -220,28 +246,58 @@ body{
     border-radius: 50%;
     float: right;
 }
-.my-content{
-    max-width: 300px;
-    display: inline;
-    padding: 10px 20px;
-    background: #28bebd;
-    border-radius: 15px;
+.my-container {
     float: right;
     margin-right: 30px;
+}
+
+.my-content{
+    min-width: 120px;
+    max-width: 300px;
+    padding: 10px 20px;
+    background: #28bebd;
+    border-radius: 4px;
     position: relative;
     color: #fff;
     word-break: break-all;
 }
+
+.my-container .sayer-data {
+    font-size: 12px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.other-container .sayer-data {
+    font-size: 12px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.my-container .sayer-name {
+    color: #555;
+    margin-left: 4px;
+}
+
+.other-container .sayer-name {
+    color: #555;
+    margin-right: 4px;
+}
+
+.say-time {
+    color: #999;
+}
+
 .my-content:before{
     content:'';
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-bottom:8px solid transparent;
-    border-left: 14px solid #28bebd;
+    border-right: 8px solid transparent;
+    border-left:8px solid transparent;
+    border-bottom: 10px solid #28bebd;
     position: absolute;
-    right:-12px;
-    top: 13px;
+    right: 16px;
+    top: -8px;
 }
 /*输入内容*/
 .input-container{
