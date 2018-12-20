@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.Random;
 
 @Controller
@@ -55,5 +56,20 @@ public class UserController {
         User newUser = new User(username, password, username, rand.nextInt(10));
         userRepository.save(newUser);
         return "redirect:/login";
+    }
+
+    @PostMapping("/avatar")
+    public  String changeAvatar(HttpServletRequest request, String avatar) {
+        Cookie[] cookies =  request.getCookies();
+        String username;
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("username")){
+                username = cookie.getValue();
+                User user = userRepository.findByUserName(username);
+                user.setAvatar(Integer.parseInt(avatar));
+                userRepository.update(user);
+            }
+        }
+        return "redirect:/chat";
     }
 }

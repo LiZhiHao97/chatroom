@@ -121,6 +121,10 @@ $(document).ready(function(){
             $(".send-btn").click();
         }
     })
+    layui.use('layer', function(){
+        var layer = layui.layer;
+    })
+    $(".personal-center").on("click", personalCenter);
 })
 
 function search(){
@@ -173,4 +177,32 @@ function onlinePeopleClick(_this) {
         $(_this).addClass("active");
         $(".to-people-value").text(_this.getAttribute("username"));
     }
+}
+
+function personalCenter() {
+    var personalCenterContent = ""
+    personalCenterContent += "<div class='personal-content'>"
+    personalCenterContent += "<h5>我的头像:</h5>"
+    personalCenterContent += "<form action='/avatar' method='post'>"
+    personalCenterContent += "<input name='avatar' class='avatar-value' type='text' value='" + $.cookie("avatar") +"'>"
+    personalCenterContent += "<br>"
+    personalCenterContent += "<img class='my-avatar' src='../imgs/" + $.cookie("avatar") +".png'>"
+    personalCenterContent += "<br>"
+    personalCenterContent += "<button type='button' class='avatar-change-btn' onclick='changeAvatar(this)'>切换</button>"
+    personalCenterContent += "<input class='personal-submit' type='submit' value='提交'>"
+    personalCenterContent += "</form>"
+    personalCenterContent += "</div>"
+    layer.open({
+        type: 1,
+        title:"个人中心",
+        area: ['520px', 'auto'],
+        shadeClose: true, //点击遮罩关闭
+        content: personalCenterContent
+    });
+}
+
+function changeAvatar() {
+    var avatar = Math.floor(Math.random()*10);
+    $(".avatar-value").attr("value", avatar);
+    $(".my-avatar").attr('src', '../imgs/' + avatar + '.png');
 }

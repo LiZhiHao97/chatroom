@@ -344,6 +344,66 @@ body{
     width: 16px;
     height: 16px;
 }
+
+.operations {
+    padding: 0 20px;
+    line-height: 30px;
+}
+
+.personal-center {
+    float: right;
+    color: #000;
+    text-decoration: none!important;
+}
+.personal-center:hover, .personal-center:active, .personal-center:visited {
+    color: #000;
+}
+.personal-center img {
+    width: 20px;
+    position: relative;
+    bottom: 2px;
+}
+.personal-content {
+    padding: 10px 40px;
+}
+
+.personal-content h5 {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.personal-content img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.avatar-change-btn {
+    width: 60px;
+    height: 30px;
+    background: #28bebd;
+    color: #fff;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    margin-top: 17px;
+    text-align: center;
+}
+.avatar-value {
+    opacity: 0;
+    height: 0;
+}
+.personal-submit {
+    width: 60px;
+    height: 30px;
+    background: #f5f5f5;
+    color: #555;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    margin-top: 17px;
+    text-align: center;
+    margin-left: 10px;
+}
 /*--------------------------------------------------------------------响应----------------------------------------------*/
 @media screen and (max-width: 850px){
     .chat-window{
